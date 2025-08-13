@@ -1,26 +1,42 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
+
+interface Technology {
+  name: string;
+  icon: string;
+}
+
+interface StackData {
+  title: string;
+  technologies: Technology[];
+}
 
 const Section3 = () => {
   const [activeSection, setActiveSection] = useState('frontend');
 
-  // Stack data for each section
-  const stackData = {
+  const stackData: Record<string, StackData> = {
     frontend: {
-      title: 'Front End',
+      title: 'Frontend',
       technologies: [
         { name: 'React', icon: '/stackIcons/react.svg' },
         { name: 'Next.js', icon: '/stackIcons/nextjs.svg' },
-        { name: 'HTML', icon: '/stackIcons/html.svg' }
+        { name: 'TypeScript', icon: '/stackIcons/typescript.svg' },
+        { name: 'Tailwind CSS', icon: '/stackIcons/tailwind.svg' },
+        { name: 'HTML', icon: '/stackIcons/html.svg' },
+        { name: 'CSS', icon: '/stackIcons/css.svg' }
       ]
     },
     backend: {
-      title: 'Back End',
+      title: 'Backend',
       technologies: [
         { name: 'Node.js', icon: '/stackIcons/nodejs.svg' },
         { name: 'Express', icon: '/stackIcons/express.svg' },
-        { name: 'Python', icon: '/stackIcons/python.svg' }
+        { name: 'Python', icon: '/stackIcons/python.svg' },
+        { name: 'Django', icon: '/stackIcons/django.svg' },
+        { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' },
+        { name: 'MongoDB', icon: '/stackIcons/mongodb.svg' }
       ]
     },
     database: {
@@ -28,32 +44,38 @@ const Section3 = () => {
       technologies: [
         { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' },
         { name: 'MongoDB', icon: '/stackIcons/mongodb.svg' },
-        { name: 'Redis', icon: '/stackIcons/redis.svg' }
+        { name: 'Redis', icon: '/stackIcons/redis.svg' },
+        { name: 'MySQL', icon: '/stackIcons/mysql.svg' }
       ]
     },
     tools: {
-      title: 'Tools',
+      title: 'Tools & DevOps',
       technologies: [
         { name: 'Git', icon: '/stackIcons/git.svg' },
+        { name: 'GitHub', icon: '/stackIcons/github.svg' },
         { name: 'Docker', icon: '/stackIcons/docker.svg' },
         { name: 'VS Code', icon: '/stackIcons/vscode.svg' }
       ]
     }
   };
 
-  const TechnologyCard = ({ tech }: { tech: any }) => (
+  const TechnologyCard = ({ tech }: { tech: Technology }) => (
     <div className="bg-zinc-700 rounded-lg px-3 py-2 flex items-center gap-2 border border-zinc-600">
       <div className="w-5 h-5 flex items-center justify-center">
-        <img 
+        <Image 
           src={tech.icon} 
           alt={tech.name}
+          width={20}
+          height={20}
           className="w-5 h-5"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
             target.style.display = 'none';
-            target.parentElement!.innerHTML = `
-              <span class="text-zinc-300 text-xs font-medium">${tech.name.charAt(0)}</span>
-            `;
+            if (target.parentElement) {
+              target.parentElement.innerHTML = `
+                <span class="text-zinc-300 text-xs font-medium">${tech.name.charAt(0)}</span>
+              `;
+            }
           }}
         />
       </div>
@@ -61,14 +83,14 @@ const Section3 = () => {
     </div>
   );
 
-  const StackSection = ({ data }: { data: any }) => (
+  const StackSection = ({ data }: { data: StackData }) => (
     <div className="bg-zinc-800 rounded-lg p-6 space-y-4">
       <h2 className="text-xl font-medium text-white">
         {data.title}
       </h2>
       
       <div className="flex flex-wrap gap-3">
-        {data.technologies.map((tech: any, index: number) => (
+        {data.technologies.map((tech: Technology, index: number) => (
           <TechnologyCard key={index} tech={tech} />
         ))}
       </div>

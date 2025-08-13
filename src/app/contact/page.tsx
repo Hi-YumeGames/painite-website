@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { Send, Mail, MessageSquare, User } from 'lucide-react';
-import Image from 'next/image';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -38,7 +37,7 @@ function Contact() {
         setSubmitStatus('error');
         setErrorMessage(result.error || 'Failed to send message. Please try again.');
       }
-    } catch (_error) {
+    } catch {
       setSubmitStatus('error');
       setErrorMessage('Network error. Please check your connection and try again.');
     } finally {

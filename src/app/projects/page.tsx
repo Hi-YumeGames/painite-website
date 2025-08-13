@@ -1,29 +1,39 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Github, ExternalLink, Copy, CheckCircle, X } from 'lucide-react';
+import Image from 'next/image';
+import { Github, ExternalLink, X } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useEffect } from 'react';
 
+interface StackItem {
+  name: string;
+  icon: string;
+}
+
+interface Project {
+  id: number;
+  name: string;
+  url: string;
+  github: string;
+  status: 'live' | 'in-progress';
+  isImage: boolean;
+  stack: StackItem[];
+}
+
 const Projects = () => {
   const [activeSection, setActiveSection] = useState('all');
-  const [copiedUrl, setCopiedUrl] = useState('');
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [modalActiveTab, setModalActiveTab] = useState('stack');
 
   // Sample project data - replace with your actual projects
-  const projects = {
+  const projects: Record<string, Project[]> = {
     all: [
       {
         id: 1,
@@ -161,17 +171,7 @@ const Projects = () => {
     ]
   };
 
-  const copyToClipboard = async (url: string, projectName: string) => {
-    try {
-      await navigator.clipboard.writeText(url);
-      setCopiedUrl(projectName);
-      setTimeout(() => setCopiedUrl(''), 2000);
-    } catch (err) {
-      console.error('Failed to copy: ', err);
-    }
-  };
-
-  const ProjectCard = ({ project }: { project: any }) => (
+  const ProjectCard = ({ project }: { project: Project }) => (
     <div 
       className="select-none bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700 hover:border-zinc-600 transition-all duration-300 group cursor-pointer"
       onClick={() => setSelectedProject(project)}
@@ -199,9 +199,11 @@ const Projects = () => {
         </div>
         
         {project.isImage ? (
-          <img
+          <Image
             src={project.url}
             alt={`Preview of ${project.name}`}
+            width={400}
+            height={300}
             className="w-full h-full object-cover"
           />
         ) : (
@@ -268,14 +270,16 @@ const Projects = () => {
 
         {/* Tech Stack */}
         <div className="flex flex-wrap gap-2">
-          {project.stack.map((tech: any, index: number) => (
+          {project.stack.map((tech: StackItem, index: number) => (
             <div
               key={index}
               className="flex items-center gap-1 bg-zinc-300 text-zinc-700 text-xs px-2 py-1 rounded border border-zinc-600"
             >
-              <img 
+              <Image 
                 src={tech.icon} 
                 alt={tech.name}
+                width={16}
+                height={16}
                 className="w-4 h-4"
               />
               <span>{tech.name}</span>
@@ -287,7 +291,7 @@ const Projects = () => {
   );
 
   // Project Modal Component
-  const ProjectModal = ({ project, onClose }: { project: any; onClose: () => void }) => {
+  const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => void }) => {
     if (!project) return null;
 
     return (
@@ -314,9 +318,11 @@ const Projects = () => {
           <div className="px-4 sm:px-6 pb-4 sm:pb-6">
             <div className="relative h-64 sm:h-86 bg-zinc-900 rounded-lg overflow-hidden">
               {project.isImage ? (
-                <img
+                <Image
                   src={project.url}
                   alt={`Preview of ${project.name}`}
+                  width={400}
+                  height={300}
                   className="w-full h-full object-cover"
                 />
               ) : (
@@ -424,14 +430,16 @@ const Projects = () => {
               {modalActiveTab === 'stack' && (
                 <div>
                   <div className="flex flex-wrap gap-2">
-                    {project.stack.map((tech: any, index: number) => (
+                    {project.stack.map((tech: StackItem, index: number) => (
                       <div
                         key={index}
                         className="flex items-center gap-1 bg-zinc-300 text-zinc-700 text-xs px-2 py-1 rounded border border-zinc-600"
                       >
-                        <img 
+                        <Image 
                           src={tech.icon} 
                           alt={tech.name}
+                          width={16}
+                          height={16}
                           className="w-4 h-4"
                         />
                         <span>{tech.name}</span>
@@ -463,7 +471,7 @@ const Projects = () => {
   };
 
   // Mobile Carousel Component using shadcn
-  const MobileCarousel = ({ projectList }: { projectList: any[] }) => {
+  const MobileCarousel = ({ projectList }: { projectList: Project[] }) => {
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
 
@@ -488,7 +496,7 @@ const Projects = () => {
           className="w-full"
         >
           <CarouselContent>
-            {projectList.map((project: any) => (
+            {projectList.map((project: Project) => (
               <CarouselItem key={project.id}>
                 <ProjectCard project={project} />
               </CarouselItem>
@@ -564,7 +572,7 @@ const Projects = () => {
                   {/* Desktop Grid */}
                   <div className="hidden md:block">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {projects[activeSection as keyof typeof projects].map((project: any ) => (
+                      {projects[activeSection as keyof typeof projects].map((project: Project ) => (
                         <ProjectCard key={project.id} project={project} />
                       ))}
                     </div>

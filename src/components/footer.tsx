@@ -10,9 +10,6 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ type }) => {
-  // Common navigation links
-  const navLinks = ['About', 'Blog', 'Jobs', 'Press', 'Accessibility', 'Partners'];
-
   if (type === 1) {
     return (
       <footer className="bg-background text-popover py-8">

@@ -1,10 +1,33 @@
 // app/api/github-activity/route.ts
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 
 interface ContributionDay {
   date: string
   contributionCount: number
   color: string
+}
+
+interface GitHubWeek {
+  contributionDays: {
+    date: string
+    contributionCount: number
+  }[]
+}
+
+interface GitHubContributionCalendar {
+  totalContributions: number
+  weeks: GitHubWeek[]
+}
+
+interface GitHubResponse {
+  data?: {
+    user?: {
+      contributionsCollection?: {
+        contributionCalendar?: GitHubContributionCalendar
+      }
+    }
+  }
+  errors?: unknown[]
 }
 
 const getContributionColor = (count: number): string => {
@@ -15,7 +38,7 @@ const getContributionColor = (count: number): string => {
   return '#9bb088'
 }
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   const token = process.env.GITHUB_TOKEN
   const username = process.env.GITHUB_USERNAME || 'YOUR_USERNAME' // Add your GitHub username to .env.local
 
@@ -61,7 +84,7 @@ export async function GET(request: NextRequest) {
       return getFallbackData()
     }
 
-    const data = await response.json()
+    const data: GitHubResponse = await response.json()
 
     if (data.errors) {
       console.log('GraphQL errors:', data.errors)
@@ -77,8 +100,8 @@ export async function GET(request: NextRequest) {
 
     // Flatten the weeks data into a single array
     const contributions: ContributionDay[] = []
-    contributionCalendar.weeks.forEach((week: any) => {
-      week.contributionDays.forEach((day: any) => {
+    contributionCalendar.weeks.forEach((week: GitHubWeek) => {
+      week.contributionDays.forEach((day) => {
         contributions.push({
           date: day.date,
           contributionCount: day.contributionCount,

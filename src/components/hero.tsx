@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 
 interface ContributionDay {
@@ -18,11 +18,7 @@ function GitHubActivityBackground({ className = '' }: GitHubActivityProps) {
   const [loading, setLoading] = useState(true)
   const [totalContributions, setTotalContributions] = useState(0)
 
-  useEffect(() => {
-    fetchGitHubActivity()
-  }, [])
-
-  const fetchGitHubActivity = async () => {
+  const fetchGitHubActivity = useCallback(async () => {
     try {
       const response = await fetch('/api/github-activity')
       
@@ -56,7 +52,11 @@ function GitHubActivityBackground({ className = '' }: GitHubActivityProps) {
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
+
+  useEffect(() => {
+    fetchGitHubActivity()
+  }, [fetchGitHubActivity])
 
   const generateMockData = () => {
     console.log('Generating mock contribution data')

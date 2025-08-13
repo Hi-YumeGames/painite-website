@@ -3,8 +3,6 @@
 import { useState } from 'react';
 
 interface FormsProps {
-  formId: string;
-  entryField: string;
   placeholder?: string;
   submitText?: string;
   row?: boolean;
@@ -12,8 +10,6 @@ interface FormsProps {
 }
 
 export default function Forms({
-  formId,
-  entryField,
   placeholder = 'Your email',
   submitText = 'Subscribe',
   row = false,

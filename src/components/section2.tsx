@@ -1,13 +1,26 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Github, Linkedin, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
+import { Github, Linkedin, ExternalLink, LucideIcon } from 'lucide-react';
+
+interface SocialLink {
+  name: string;
+  url: string;
+  icon: LucideIcon;
+}
+
+interface SectionData {
+  image?: string;
+  description: string;
+  social: SocialLink[];
+}
 
 const Section2 = () => {
   const [activeSection, setActiveSection] = useState('professional');
 
   // Sample data for each section
-  const sectionData = {
+  const sectionData: Record<string, SectionData> = {
     professional: {
       image: '/images/profile.jpg', // Replace with your actual image path
       description: 'Experienced software developer with expertise in modern web technologies. Passionate about creating efficient, scalable solutions and contributing to innovative projects.',
@@ -31,7 +44,7 @@ const Section2 = () => {
     }
   };
 
-  const SocialIcon = ({ social }: { social: any }) => (
+  const SocialIcon = ({ social }: { social: SocialLink }) => (
     <a
       href={social.url}
       target="_blank"
@@ -43,24 +56,28 @@ const Section2 = () => {
     </a>
   );
 
-  const SectionContent = ({ data }: { data: any }) => (
+  const SectionContent = ({ data }: { data: SectionData }) => (
     <div className="flex flex-col md:flex-row items-center  gap-8 max-w-4xl mx-auto">
       {data.image && (
         <div className="flex-shrink-0">
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-zinc-600 bg-zinc-800">
-            <img
+            <Image
               src={data.image}
               alt="Profile"
+              width={256}
+              height={256}
               className="w-full h-full object-cover"
               onError={(e) => {
                 // Fallback to placeholder if image fails to load
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
-                target.parentElement!.innerHTML = `
-                  <div class="w-full h-full bg-zinc-700 flex items-center justify-center">
-                    <span class="text-zinc-500 text-sm">Image</span>
-                  </div>
-                `;
+                if (target.parentElement) {
+                  target.parentElement.innerHTML = `
+                    <div class="w-full h-full bg-zinc-700 flex items-center justify-center">
+                      <span class="text-zinc-500 text-sm">Image</span>
+                    </div>
+                  `;
+                }
               }}
             />
           </div>
@@ -79,7 +96,7 @@ const Section2 = () => {
         {/* Social Icons - only show if social icons exist */}
         {data.social && data.social.length > 0 && (
           <div className={`flex gap-3 ${!data.image ? 'justify-center' : 'justify-center md:justify-start'}`}>
-            {data.social.map((social: any, index: number) => (
+            {data.social.map((social: SocialLink, index: number) => (
               <SocialIcon key={index} social={social} />
             ))}
           </div>
