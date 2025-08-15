@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Github, Linkedin, ExternalLink, LucideIcon, Instagram, Facebook, Youtube } from 'lucide-react';
+import { Github, Linkedin, LucideIcon, Instagram, Facebook, Youtube } from 'lucide-react';
 
 interface SocialLink {
   name: string;

@@ -1,0 +1,44 @@
+[06:03:04.609] Running build in Washington, D.C., USA (East) – iad1
+[06:03:04.610] Build machine configuration: 2 cores, 8 GB
+[06:03:04.625] Cloning github.com/Hi-YumeGames/painite-website (Branch: main, Commit: 0317857)
+[06:03:05.362] Cloning completed: 736.000ms
+[06:03:07.219] Restored build cache from previous deployment (4jdHDXmBFEo7zgdFjYuVcdijnx55)
+[06:03:11.560] Running "vercel build"
+[06:03:11.991] Vercel CLI 45.0.9
+[06:03:12.331] Installing dependencies...
+[06:03:13.545] 
+[06:03:13.546] up to date in 977ms
+[06:03:13.546] 
+[06:03:13.546] 147 packages are looking for funding
+[06:03:13.547]   run `npm fund` for details
+[06:03:13.576] Detected Next.js version: 15.4.3
+[06:03:13.580] Running "npm run build"
+[06:03:13.692] 
+[06:03:13.692] > haya@0.1.0 build
+[06:03:13.692] > next build
+[06:03:13.693] 
+[06:03:14.897]    ▲ Next.js 15.4.3
+[06:03:14.898] 
+[06:03:14.943]    Creating an optimized production build ...
+[06:03:22.712] [src/media_query.rs:1032:11]
+[06:03:22.713] [src/media_query.rs:1032:11]
+[06:03:22.713] [src/media_query.rs:1032:11]
+[06:03:25.443]  ✓ Compiled successfully in 6.0s
+[06:03:25.449]    Linting and checking validity of types ...
+[06:03:31.013] 
+[06:03:31.014] Failed to compile.
+[06:03:31.014] 
+[06:03:31.014] ./src/app/about/page.tsx
+[06:03:31.014] 5:28  Warning: 'ExternalLink' is defined but never used.  @typescript-eslint/no-unused-vars
+[06:03:31.014] 
+[06:03:31.014] ./src/components/SocialMenu.tsx
+[06:03:31.014] 23:9  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+[06:03:31.014] 
+[06:03:31.014] ./src/components/hero.tsx
+[06:03:31.014] 55:6  Warning: React Hook useCallback has a missing dependency: 'generateMockData'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+[06:03:31.015] 
+[06:03:31.015] ./src/components/section2.tsx
+[06:03:31.015] 5:28  Warning: 'ExternalLink' is defined but never used.  @typescript-eslint/no-unused-vars
+[06:03:31.015] 
+[06:03:31.015] info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+[06:03:31.056] Error: Command "npm run build" exited with 1

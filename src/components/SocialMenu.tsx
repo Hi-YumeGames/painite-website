@@ -20,7 +20,7 @@ import {
 interface SocialLink {
   label: string;
   href: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }> | string;
   isBootstrapIcon?: boolean;
 }
 

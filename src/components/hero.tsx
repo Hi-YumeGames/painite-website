@@ -18,47 +18,7 @@ function GitHubActivityBackground({ className = '' }: GitHubActivityProps) {
   const [loading, setLoading] = useState(true)
   const [totalContributions, setTotalContributions] = useState(0)
 
-  const fetchGitHubActivity = useCallback(async () => {
-    try {
-      const response = await fetch('/api/github-activity')
-      
-      if (!response.ok) {
-        console.log('API response not ok, using fallback data')
-        generateMockData()
-        return
-      }
-      
-      const text = await response.text()
-      if (!text) {
-        console.log('Empty response, using fallback data')
-        generateMockData()
-        return
-      }
-      
-      const data = JSON.parse(text)
-      
-      if (data.contributions && data.contributions.length > 0) {
-        console.log(`Loaded ${data.contributions.length} contribution days`)
-        setContributions(data.contributions)
-        setTotalContributions(data.totalContributions || 0)
-      } else {
-        console.log('No contributions data, using fallback')
-        generateMockData()
-      }
-    } catch (error) {
-      console.error('Error fetching GitHub activity:', error)
-      // Generate consistent mock data for development/fallback
-      generateMockData()
-    } finally {
-      setLoading(false)
-    }
-  }, [])
-
-  useEffect(() => {
-    fetchGitHubActivity()
-  }, [fetchGitHubActivity])
-
-  const generateMockData = () => {
+  const generateMockData = useCallback(() => {
     console.log('Generating mock contribution data')
     const mockData: ContributionDay[] = []
     const today = new Date()
@@ -95,7 +55,49 @@ function GitHubActivityBackground({ className = '' }: GitHubActivityProps) {
     console.log(`Generated ${mockData.length} mock days, total: ${total} contributions`)
     setContributions(mockData)
     setTotalContributions(total)
-  }
+  }, [])
+
+  const fetchGitHubActivity = useCallback(async () => {
+    try {
+      const response = await fetch('/api/github-activity')
+      
+      if (!response.ok) {
+        console.log('API response not ok, using fallback data')
+        generateMockData()
+        return
+      }
+      
+      const text = await response.text()
+      if (!text) {
+        console.log('Empty response, using fallback data')
+        generateMockData()
+        return
+      }
+      
+      const data = JSON.parse(text)
+      
+      if (data.contributions && data.contributions.length > 0) {
+        console.log(`Loaded ${data.contributions.length} contribution days`)
+        setContributions(data.contributions)
+        setTotalContributions(data.totalContributions || 0)
+      } else {
+        console.log('No contributions data, using fallback')
+        generateMockData()
+      }
+    } catch (error) {
+      console.error('Error fetching GitHub activity:', error)
+      // Generate consistent mock data for development/fallback
+      generateMockData()
+    } finally {
+      setLoading(false)
+    }
+  }, [generateMockData])
+
+  useEffect(() => {
+    fetchGitHubActivity()
+  }, [fetchGitHubActivity])
+
+
 
   const getContributionColor = (count: number): string => {
     if (count === 0) return '#2d2d2d'
