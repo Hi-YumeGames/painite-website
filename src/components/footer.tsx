@@ -12,9 +12,11 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ type }) => {
   if (type === 1) {
     return (
-      <footer className="bg-background text-popover py-8">
+      <footer className="bg-background text-popover py-4">
         <div className="flex items-center justify-between gap-4 px-4">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs sm:text-sm text-muted-foreground"
+            style={{ fontFamily: 'IBMLight' }}
+          >
             © 2025 PainiteCODE. All rights reserved.
           </p>
           <SocialMenu />
@@ -30,7 +32,9 @@ const Footer: React.FC<FooterProps> = ({ type }) => {
         <div className="hidden flex-col items-center gap-8 sm:flex ">
           <FooterNavMenu />
           <SocialMenu />
-          <p className="text-center text-sm text-muted-foreground">
+          <p className="text-center text-sm text-muted-foreground"
+            style={{ fontFamily: 'IBMLight' }}
+          >
             © 2025 Your Company. All rights reserved.
           </p>
         </div>
@@ -44,7 +48,9 @@ const Footer: React.FC<FooterProps> = ({ type }) => {
         </div> */}
       
         <div className="flex sm:hidden justify-around items-center">
-          <p className="text-center text-sm text-muted-foreground">
+          <p className="text-center text-sm text-muted-foreground"
+            style={{ fontFamily: 'IBMLight' }}
+          >
             © 2025 Your Company. All rights reserved.
           </p>
           <FooterNavMenu />

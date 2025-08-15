@@ -56,13 +56,13 @@ function Header() {
         }}
     >
         <Link href="/" className="flex items-end gap-2">
-            <h1 className="flex flex-col pb-1 text-2xl sm:text-3xl md:text-4xl font-semibold leading-6 gap-2"
+            <h1 className="flex flex-col pb-1 text-lg sm:text-2xl font-semibold leading-6"
                 style={{
-                    fontFamily: 'IBMLight'
+                    fontFamily: 'IBMRegular'
                 }}
             >
                 PAINITE
-                <span className="bg-gradient-to-r from-[#CAE6A2] from-[3%] to-[#FFFDCF] to-[70%] bg-clip-text text-transparent pt-1 pb-4"
+                <span className="text-xl sm:text-2xl bg-gradient-to-r from-[#CAE6A2] from-[3%] to-[#FFFDCF] to-[70%] bg-clip-text text-transparent pt-1 pb-4"
                     style={{
                         fontFamily: 'IBMBold'
                     }}

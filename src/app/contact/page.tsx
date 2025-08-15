@@ -185,7 +185,7 @@ function Contact() {
                 rel="noopener noreferrer"
                 className="text-[var(--card-1c)] hover:text-[var(--card-1d)] transition-colors duration-200 font-semibold"
               >
-                Twitter "X"
+                <i className="bi bi-twitter-x"></i>
               </a>
             </p>
           </div>

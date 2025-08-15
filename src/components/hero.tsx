@@ -286,8 +286,8 @@ function Hero() {
 
   function useTypingEffect(words: string[], typingSpeed = 100, deletingSpeed = 50, pauseTime = 1500) {
     const [text, setText] = useState('')
-    const [index, setIndex] = useState(0) // current word index
-    const [subIndex, setSubIndex] = useState(0) // current character index
+    const [index, setIndex] = useState(0)
+    const [subIndex, setSubIndex] = useState(0)
     const [deleting, setDeleting] = useState(false)
 
     useEffect(() => {
@@ -337,10 +337,10 @@ function Hero() {
       <GitHubActivityBackground className="z-0" />
       
       <div className="relative z-10 isolate px-6 lg:px-8">
-        <div className="mx-auto py-4 sm:py-8 lg:py-16">
+        <div className="mx-auto py-8 sm:py-16">
           <div className="text-center relative h-full flex flex-col items-center justify-center">
             <h1
-              className="flex text-4xl pb-4 bg-gradient-to-r from-[#CAE6A2] to-[#FFFDCF] bg-clip-text text-transparent sm:text-6xl"
+              className="flex text-lg pb-4 bg-gradient-to-r from-[#CAE6A2] to-[#FFFDCF] bg-clip-text text-transparent sm:text-6xl "
               style={{
                 fontFamily: 'IBMLight, IBMLightAR, IBMLightKR, IBMLightJP',
                 whiteSpace: 'nowrap'
@@ -350,7 +350,7 @@ function Hero() {
               <span className={`${isArabic ? 'order-2' : 'order-1'}`}>{typingText}</span>
             </h1>
             <p 
-              className="mt-8 text-lg font-medium text-pretty text-[#F9F9F9] sm:text-xl/8"
+              className="mt-2 text-sm font-medium text-pretty text-[#F9F9F9] sm:text-4xl sm:mt-8"
               style={{ fontFamily: 'IBMLight' }}
             >
               Simply a <span className="bg-gradient-to-r from-[#CAE6A2] from-[10%] to-[#FFFDCF] to-[70%] bg-clip-text text-transparent">Developer</span>
@@ -358,7 +358,7 @@ function Hero() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="/Yazan Barakat-CV.pdf"
-                className="flex items-center gap-4 rounded-md px-3.5 py-2.5 text-sm font-semibold text-black
+                className="flex items-center gap-2 sm:gap-4 rounded-md px-3 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-black
                   bg-gradient-to-r from-[#CAE6A2] from-[50%] to-[#FFFDCF] to-[100%] 
                   hover:from-[0%] hover:to-[50%] 
                   transform cursor-pointer transition-all duration-300 relative overflow-hidden group/btn
@@ -368,10 +368,10 @@ function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent 
                   transform -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
                 <div className="absolute -inset-1 bg-[#CAE6A2]/30 rounded-lg blur-sm -z-10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                <Image src="/images/download.svg" alt="Download" width={25} height={25} />
-                resumé
+                <Image src="/images/download.svg" alt="Download" width={20} height={20} className="sm:w-6 sm:h-6" />
+                <span className="text-xs sm:text-sm">resumé</span>
               </a>
-              <div className="relative rounded-md p-[3px] bg-gradient-to-r from-[#CAE6A2] from-[50%] to-[#FFFDCF] to-[100%] 
+              <div className="relative rounded-md p-[2px] sm:p-[3px] bg-gradient-to-r from-[#CAE6A2] from-[50%] to-[#FFFDCF] to-[100%] 
                 hover:from-[#CAE6A2] hover:from-[0%] hover:to-[#FFFDCF] hover:to-[50%] 
                 transition-all duration-300 group/btn overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent 
@@ -379,12 +379,12 @@ function Hero() {
                 <div className="absolute -inset-1 bg-[#CAE6A2]/20 rounded-lg blur-sm -z-10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                 <a 
                   href="/contact" 
-                  className="flex items-center gap-4 text-sm/6 font-semibold text-[#F9F9F9]
-                    rounded-[calc(0.375rem-3px)] px-3.5 py-1.75 bg-[#212121]
+                  className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm font-semibold text-[#F9F9F9]
+                    rounded-[0.25rem] sm:rounded-[0.375rem] px-2.5 sm:px-3.5 py-1.5 sm:py-1.75 bg-[#212121]
                     transform cursor-pointer transition-all duration-300 relative z-10"
                 >
-                  <Image src="/images/rocket.svg" alt="Rocket" width={25} height={25} />
-                  <span>let's build</span>
+                  <Image src="/images/rocket.svg" alt="Rocket" width={20} height={20} className="sm:w-6 sm:h-6" />
+                  <span className="text-xs sm:text-sm">let's build</span>
                 </a>
               </div>
             </div>

@@ -37,91 +37,102 @@ const Section1 = () => {
         id: 1,
         name: 'adaptive planner',
         url: '/images/logo.png',
-        github: 'https://github.com/username/adaptive',
+        github: 'https://github.com/Painite69/adaptive-public',
         status: 'in-progress', // 'live' or 'in-progress'
         isImage: true,
         stack: [
           { name: 'React', icon: '/stackIcons/react.svg' },
           { name: 'Next.js', icon: '/stackIcons/nextjs.svg' },
-          { name: 'HTML', icon: '/stackIcons/html.svg' }
+          { name: 'TypeScript', icon: '/stackIcons/typescript.svg' },
+
+          { name: 'Tailwind CSS', icon: '/stackIcons/tailwind.svg' },
+          { name: 'Shadcn', icon: '/stackIcons/shadcn.svg' },
+          
+          { name: 'Supabase', icon: '/stackIcons/supabase.svg' },
+          { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' }
         ]
       },
       {
         id: 2,
         name: 'warframedle',
         url: 'https://warframedle.com',
-        github: 'https://github.com/username/warframedle',
+        github: 'https://github.com/Painite69/warframedle-public',
         status: 'live',
         isImage: false,
         stack: [
           { name: 'React', icon: '/stackIcons/react.svg' },
-          { name: 'Next.js', icon: '/stackIcons/nextjs.svg' },
-          { name: 'HTML', icon: '/stackIcons/html.svg' }
+          { name: 'Vite', icon: '/stackIcons/vite.svg' },
+          { name: 'CSS', icon: '/stackIcons/css.svg' },
+          { name: 'Firebase', icon: '/stackIcons/firebase.svg' }
         ]
       },
       {
         id: 3,
         name: 'victors game',
         url: 'https://www.hiyume.games/VictorsGame',
-        github: 'https://github.com/',
+        github: 'https://github.com/Painite69/victors-game-public',
         status: 'live',
         isImage: false,
         stack: [
-          { name: 'React', icon: '/stackIcons/react.svg' },
-          { name: 'HTML', icon: '/stackIcons/html.svg' }
+          { name: 'Godot 4.3', icon: '/stackIcons/godot.svg' },
+          { name: 'GDScript', icon: '/stackIcons/gdscript.png' },
+          { name: 'JSON', icon: '/stackIcons/json.svg' },
+
+          { name: 'iOS', icon: '/stackIcons/ios.svg' },
+          { name: 'Android', icon: '/stackIcons/android.svg' }
         ]
       }
-      // {
-      //   id: 3,
-      //   name: 'mohammed portfolio',
-      //   url: 'https://mohammed.hiyume.games',
-      //   github: 'https://github.com/username/warframedle',
-      //   status: 'live',
-      //   isImage: false,
-      //   stack: [
-      //     { name: 'React', icon: '⚛️' },
-      //     { name: 'HTML', icon: '🌐' }
-      //     { name: 'HTML', icon: '🌐' }
-      //   ]
-      // }
     ],
     sites: [
       {
         id: 1,
         name: 'hiyume.games',
         url: 'https://hiyume.games',
-        github: 'https://github.com/username/hiyume-games',
+        github: 'https://github.com/Painite69/hiyume-website-public',
         status: 'live',
         isImage: false,
         stack: [
           { name: 'React', icon: '/stackIcons/react.svg' },
           { name: 'Next.js', icon: '/stackIcons/nextjs.svg' },
-          { name: 'HTML', icon: '/stackIcons/html.svg' }
+          { name: 'TypeScript', icon: '/stackIcons/typescript.svg' },
+          { name: 'Tailwind CSS', icon: '/stackIcons/tailwind.svg' },
+          { name: 'CSS', icon: '/stackIcons/css.svg' }
         ]
       },
       {
         id: 2,
         name: 'enobart.hiyume.games',
         url: 'https://enobart.hiyume.games',
-        github: 'https://github.com/username/eno-project',
+        github: 'https://github.com/Painite69/enobart-portfolio-public',
         status: 'live',
         isImage: false,
         stack: [
           { name: 'React', icon: '/stackIcons/react.svg' },
           { name: 'Next.js', icon: '/stackIcons/nextjs.svg' },
-          { name: 'HTML', icon: '/stackIcons/html.svg' }
+          { name: 'TypeScript', icon: '/stackIcons/typescript.svg' },
+          { name: 'Tailwind CSS', icon: '/stackIcons/tailwind.svg' },
+          { name: 'Shadcn', icon: '/stackIcons/shadcn.svg' },
+          { name: 'Supabase', icon: '/stackIcons/supabase.svg' },
+          { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' },
+          { name: 'Resend', icon: '/stackIcons/resend.svg' }
         ]
       },
       {
         id: 3,
         name: 'haya.hiyume.games',
         url: 'https://haya.hiyume.games',
-        github: 'https://github.com/username/warframedle',
+        github: 'https://github.com/Painite69/haya-portfolio-public',
         status: 'live',
         isImage: false,
         stack: [
           { name: 'React', icon: '/stackIcons/react.svg' },
-          { name: 'HTML', icon: '/stackIcons/html.svg' }
+          { name: 'Next.js', icon: '/stackIcons/nextjs.svg' },
+          { name: 'TypeScript', icon: '/stackIcons/typescript.svg' },
+          { name: 'Tailwind CSS', icon: '/stackIcons/tailwind.svg' },
+          { name: 'Shadcn', icon: '/stackIcons/shadcn.svg' },
+          { name: 'Supabase', icon: '/stackIcons/supabase.svg' },
+          { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' },
+          { name: 'Resend', icon: '/stackIcons/resend.svg' }
         ]
       }
     ],
@@ -130,26 +141,33 @@ const Section1 = () => {
         id: 1,
         name: 'adaptive planner',
         url: '/images/logo.png',
-        github: 'https://github.com/username/adaptive',
+        github: 'https://github.com/Painite69/adaptive-public',
         status: 'in-progress', // 'live' or 'in-progress'
         isImage: true,
         stack: [
           { name: 'React', icon: '/stackIcons/react.svg' },
           { name: 'Next.js', icon: '/stackIcons/nextjs.svg' },
-          { name: 'HTML', icon: '/stackIcons/html.svg' }
+          { name: 'TypeScript', icon: '/stackIcons/typescript.svg' },
+
+          { name: 'Tailwind CSS', icon: '/stackIcons/tailwind.svg' },
+          { name: 'Shadcn', icon: '/stackIcons/shadcn.svg' },
+          
+          { name: 'Supabase', icon: '/stackIcons/supabase.svg' },
+          { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' }
         ]
       },
       {
         id: 2,
         name: 'warframedle.com',
         url: 'https://warframedle.com',
-        github: 'https://github.com/username/portfolio-app',
+        github: 'https://github.com/Painite69/warframedle-public',
         status: 'live',
         isImage: false,
         stack: [
           { name: 'React', icon: '/stackIcons/react.svg' },
-          { name: 'Next.js', icon: '/stackIcons/nextjs.svg' },
-          { name: 'HTML', icon: '/stackIcons/html.svg' }
+          { name: 'Vite', icon: '/stackIcons/vite.svg' },
+          { name: 'CSS', icon: '/stackIcons/css.svg' },
+          { name: 'Firebase', icon: '/stackIcons/firebase.svg' }
         ]
       }
     ],
@@ -158,12 +176,16 @@ const Section1 = () => {
         id: 1,
         name: 'victors game',
         url: 'https://www.hiyume.games/VictorsGame',
-        github: '',
+        github: 'https://github.com/Painite69/victors-game-public',
         status: 'live',
         isImage: false,
         stack: [
-          { name: 'Godot', icon: '/stackIcons/godot.svg' },
-          { name: 'GDScript', icon: '/stackIcons/gdscript.svg' },
+          { name: 'Godot 4.3', icon: '/stackIcons/godot.svg' },
+          { name: 'GDScript', icon: '/stackIcons/gdscript.png' },
+          { name: 'JSON', icon: '/stackIcons/json.svg' },
+
+          { name: 'iOS', icon: '/stackIcons/ios.svg' },
+          { name: 'Android', icon: '/stackIcons/android.svg' }
         ]
       }
     ]
@@ -346,20 +368,20 @@ const Section1 = () => {
           <div className="text-center relative h-full flex flex-col items-center justify-center">
             {/* Header */}
             <h1 
-              className="text-4xl text-white sm:text-6xl mb-12"
+              className="text-lg text-white sm:text-6xl mb-4 sm:mb-12"
               style={{ fontFamily: 'IBMLight' }}
             >
               My<span className="bg-gradient-to-r from-[#CAE6A2] from-[3%] to-[#FFFDCF] to-[70%] bg-clip-text text-transparent">Work</span>
             </h1>
 
             {/* Section Toggles */}
-            <div className="flex justify-start gap-8 mb-12"
+            <div className="flex justify-start gap-8 mb-4 sm:mb-12"
                 style={{ fontFamily: 'IBMLight' }}>
               {['recent', 'sites', 'apps', 'games'].map((section) => (
                 <button
                   key={section}
                   onClick={() => setActiveSection(section)}
-                  className={`cursor-pointer text-lg font-medium transition-all duration-300 relative pb-2 ${
+                  className={`cursor-pointer text-sm sm:text-lg font-medium transition-all duration-300 relative pb-2 ${
                     activeSection === section
                       ? 'text-white'
                       : 'text-zinc-500 hover:text-zinc-300'
@@ -402,7 +424,7 @@ const Section1 = () => {
             </div>
 
             {/* More Button */}
-            <div className="mt-12">
+            <div className="mt-4 sm:mt-12">
               <div className="relative rounded-md p-[2px] bg-gradient-to-r from-[#CAE6A2] from-[50%] to-[#FFFDCF] to-[100%] 
                 hover:from-[#CAE6A2] hover:from-[0%] hover:to-[#FFFDCF] hover:to-[50%] 
                 transition-all duration-300 group/btn overflow-hidden">
@@ -416,8 +438,8 @@ const Section1 = () => {
                 
                 <a 
                   href="/projects" 
-                  className="flex items-center gap-4 text-sm/6 font-semibold text-white
-                    rounded-[calc(0.375rem-2px)] px-6 py-3 bg-background
+                  className="flex items-center gap-4 text-xs sm:text-sm/6 font-semibold text-white
+                    rounded-[calc(0.375rem-2px)] px-4 sm:px-6 py-1 bg-background
                     transform cursor-pointer transition-all duration-300 relative z-10"
                 >
                   more

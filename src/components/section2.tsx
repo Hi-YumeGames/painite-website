@@ -2,12 +2,13 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Github, Linkedin, ExternalLink, LucideIcon } from 'lucide-react';
+import { Github, Linkedin, ExternalLink, LucideIcon, Instagram, Facebook, Youtube } from 'lucide-react';
 
 interface SocialLink {
   name: string;
   url: string;
-  icon: LucideIcon;
+  icon: LucideIcon | string;
+  isCustomIcon?: boolean;
 }
 
 interface SectionData {
@@ -22,39 +23,83 @@ const Section2 = () => {
   // Sample data for each section
   const sectionData: Record<string, SectionData> = {
     professional: {
-      image: '/images/profile.jpg', // Replace with your actual image path
-      description: 'Experienced software developer with expertise in modern web technologies. Passionate about creating efficient, scalable solutions and contributing to innovative projects.',
+      image: '/images/professional.png',
+      description: 'Electrical Eng., Developer and Designer. I build and design to serve purpose and provide value to the user. I have multiple fields of expertise that help me adapt no matter the situation, and it keeps me eager to learn and grow.',
       social: [
-        { name: 'LinkedIn', url: 'https://linkedin.com/in/yourusername', icon: Linkedin },
-        { name: 'GitHub', url: 'https://github.com/yourusername', icon: Github },
-        { name: 'Portfolio', url: 'https://yourportfolio.com', icon: ExternalLink }
+        { name: 'LinkedIn', url: 'https://www.linkedin.com/in/yazan-barakat-2354ba37a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', icon: Linkedin },
+        { name: 'GitHub', url: 'https://github.com/Painite69', icon: Github },
+        { name: 'Upwork', url: 'https://upwork.com/freelancers/~016b673a89188b9871', icon: '/images/upwork.svg', isCustomIcon: true },
+        { name: 'Freelancer', url: 'https://www.freelancer.com/u/PainiteCoding?sb=t', icon: '/images/freelancer.svg', isCustomIcon: true },
+        { name: 'Behance', url: 'https://www.behance.net/yazanbarakat3', icon: '/images/behance.svg', isCustomIcon: true },
+        { name: 'Dribbble', url: 'https://dribbble.com/painitecode', icon: '/images/dribbble.svg', isCustomIcon: true }
       ]
     },
     personal: {
-      image: '/images/personal.jpg', // Replace with your actual image path
-      description: 'Creative individual who enjoys exploring new technologies and building things that make a difference. Always curious and eager to learn from every experience.',
+      image: '/images/personal.jpeg',
+      description: 'I play video games like warframe and lol, I love creating for these communities, to show my appreciation and support. Also recently got into chess and trivia games.',
       social: [
-        { name: 'GitHub', url: 'https://github.com/yourusername', icon: Github },
-        { name: 'Blog', url: 'https://yourblog.com', icon: ExternalLink }
+        { name: 'Instagram', url: 'https://www.instagram.com/painitecoding', icon: Instagram },
+        { name: 'X', url: 'https://x.com/painitedev', icon: 'bi bi-twitter-x text-[#f9f9f9]' },
+        { name: 'Facebook', url: 'https://www.facebook.com/painite.2025', icon: Facebook },
+        { name: 'TikTok', url: 'https://www.tiktok.com/@painitecode', icon: 'bi bi-tiktok text-[#f9f9f9]' },
+        { name: 'YouTube', url: 'https://www.youtube.com/@painitecode', icon: Youtube }
       ]
     },
     private: {
-      description: 'Personal space for thoughts, experiments, and creative projects. A place where ideas can grow without the pressure of external expectations.',
+      description: 'there\'s nothing here :P, don\'t be a creep, I\'ll not share private info.',
       social: []
     }
   };
 
-  const SocialIcon = ({ social }: { social: SocialLink }) => (
-    <a
-      href={social.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-700 rounded transition-all duration-200"
-      title={social.name}
-    >
-      <social.icon size={20} />
-    </a>
-  );
+  const SocialIcon = ({ social }: { social: SocialLink }) => {
+    if (social.isCustomIcon) {
+      // Custom SVG icon
+      return (
+        <a
+          href={social.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-700 rounded transition-all duration-200"
+          title={social.name}
+        >
+          <Image
+            src={social.icon as string}
+            alt={social.name}
+            width={20}
+            height={20}
+            className="w-5 h-5"
+          />
+        </a>
+      );
+    } else if (typeof social.icon === 'string' && social.icon.startsWith('bi ')) {
+      // Bootstrap icon
+      return (
+        <a
+          href={social.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-700 rounded transition-all duration-200"
+          title={social.name}
+        >
+          <i className={social.icon}></i>
+        </a>
+      );
+    } else {
+      // Lucide React icon
+      const IconComponent = social.icon as LucideIcon;
+      return (
+        <a
+          href={social.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 text-[#f9f9f9] hover:text-white hover:bg-zinc-700 rounded transition-all duration-200"
+          title={social.name}
+        >
+          <IconComponent size={20} />
+        </a>
+      );
+    }
+  };
 
   const SectionContent = ({ data }: { data: SectionData }) => (
     <div className="flex flex-col md:flex-row items-center  gap-8 max-w-4xl mx-auto">
@@ -88,7 +133,7 @@ const Section2 = () => {
       <div className={`flex-1 space-y-6 ${!data.image ? 'text-center' : 'text-center md:text-left'}`}>
         {/* Description */}
         <div className="space-y-4">
-          <p className="text-lg text-zinc-300 leading-relaxed">
+          <p className="text-sm sm:text-lg text-zinc-300 leading-relaxed">
             {data.description}
           </p>
         </div>
@@ -112,7 +157,7 @@ const Section2 = () => {
           <div className="text-center relative h-full flex flex-col items-center justify-center">
             {/* Header */}
             <h1 
-              className="text-4xl text-white sm:text-6xl mb-12"
+              className="text-lg text-white sm:text-6xl mb-4 sm:mb-12"
               style={{ fontFamily: 'IBMLight' }}
             >
               My<span className="bg-gradient-to-r from-[#CAE6A2] from-[3%] to-[#FFFDCF] to-[70%] bg-clip-text text-transparent">self</span>
@@ -124,7 +169,7 @@ const Section2 = () => {
                 <button
                   key={section}
                   onClick={() => setActiveSection(section)}
-                  className={`cursor-pointer text-sm font-medium transition-all duration-300 relative pb-2 sm:text-lg ${
+                  className={`cursor-pointer text-sm sm:text-lg font-medium transition-all duration-300 relative pb-2 ${
                     activeSection === section
                       ? 'text-white'
                       : 'text-zinc-500 hover:text-zinc-300'

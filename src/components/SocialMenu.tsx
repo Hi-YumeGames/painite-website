@@ -11,29 +11,50 @@ import {
 import { 
   Facebook, 
   Instagram, 
-  Twitter, 
   Youtube, 
   Github, 
   Linkedin, 
-  MessageCircle, 
   Link 
 } from "lucide-react";
 
-const socialLinks = [
-  { href: "https://www.facebook.com/", icon: Facebook, label: "Facebook" },
-  { href: "https://www.instagram.com/", icon: Instagram, label: "Instagram" },
-  { href: "https://twitter.com/", icon: Twitter, label: "Twitter" },
-  { href: "https://www.youtube.com/", icon: Youtube, label: "YouTube" },
-  { href: "https://github.com/", icon: Github, label: "GitHub" },
-  { href: "https://www.linkedin.com/", icon: Linkedin, label: "LinkedIn" },
-  { href: "https://www.tiktok.com/", icon: MessageCircle, label: "TikTok" },
-  { href: "https://www.whatsapp.com/", icon: MessageCircle, label: "WhatsApp" },
+interface SocialLink {
+  label: string;
+  href: string;
+  icon: any;
+  isBootstrapIcon?: boolean;
+}
+
+const socialLinks: SocialLink[] = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/yazan-barakat-2354ba37a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', icon: Linkedin },
+  { label: 'GitHub', href: 'https://github.com/Painite69', icon: Github },
+  { label: 'Instagram', href: 'https://www.instagram.com/painitecoding', icon: Instagram },
+  { label: 'X', href: 'https://x.com/painitedev', icon: 'bi bi-twitter-x text-[#f9f9f9]/80', isBootstrapIcon: true },
+  { label: 'Facebook', href: 'https://www.facebook.com/painite.2025', icon: Facebook },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@painitecode', icon: 'bi bi-tiktok text-[#f9f9f9]/80', isBootstrapIcon: true },
+  { label: 'YouTube', href: 'https://www.youtube.com/@painitecode', icon: Youtube }
 ];
 
 interface SocialMenuProps {
   className?: string;
   iconClassName?: string;
 }
+
+const SocialIcon = ({ link, iconClassName = "" }: { link: SocialLink; iconClassName?: string }) => {
+  if (link.isBootstrapIcon) {
+    // Bootstrap icon
+    return (
+      <i className={`${link.icon} text-muted-foreground hover:text-primary cursor-pointer ${iconClassName}`}></i>
+    );
+  } else {
+    // Lucide React icon
+    const IconComponent = link.icon;
+    return (
+      <IconComponent
+        className={`text-muted-foreground hover:text-primary cursor-pointer w-5 h-5 ${iconClassName}`}
+      />
+    );
+  }
+};
 
 const SocialMenu: React.FC<SocialMenuProps> = ({ className = "", iconClassName = "" }) => {
   return (
@@ -47,10 +68,9 @@ const SocialMenu: React.FC<SocialMenuProps> = ({ className = "", iconClassName =
             target="_blank"
             rel="noopener noreferrer"
             aria-label={link.label}
+            className="flex items-center gap-2 hover:scale-105 transition-all duration-200 cursor-pointer"
           >
-            <link.icon
-              className={`text-muted-foreground hover:text-primary hover:scale-105 transition-all duration-200 cursor-pointer w-5 h-5 ${iconClassName}`}
-            />
+            <SocialIcon link={link} iconClassName={iconClassName} />
           </a>
         ))}
       </div>
@@ -59,7 +79,7 @@ const SocialMenu: React.FC<SocialMenuProps> = ({ className = "", iconClassName =
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" aria-label="Open social menu">
-              <Link className={`w-5 h-5 ${iconClassName}`} />
+              <Link className={`w-5 h-5 text-[#f9f9f9]/80 ${iconClassName}`} />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
@@ -69,10 +89,11 @@ const SocialMenu: React.FC<SocialMenuProps> = ({ className = "", iconClassName =
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 text-[#f9f9f9]/80"
+                  style={{ fontFamily: 'IBMLight' }}
                   aria-label={link.label}
                 >
-                  <link.icon className="w-5 h-5" />
+                  <SocialIcon link={link} />
                   <span>{link.label}</span>
                 </a>
               </DropdownMenuItem>
