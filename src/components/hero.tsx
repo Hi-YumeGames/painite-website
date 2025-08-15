@@ -342,7 +342,7 @@ function Hero() {
         <div className="mx-auto py-8 sm:py-16">
           <div className="text-center relative h-full flex flex-col items-center justify-center">
             <h1
-              className="flex text-lg pb-4 bg-gradient-to-r from-[#CAE6A2] to-[#FFFDCF] bg-clip-text text-transparent sm:text-6xl "
+              className="flex  pb-4 bg-gradient-to-r from-[#CAE6A2] to-[#FFFDCF] bg-clip-text text-transparent xm:text-lg sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl "
               style={{
                 fontFamily: 'IBMLight, IBMLightAR, IBMLightKR, IBMLightJP',
                 whiteSpace: 'nowrap'
