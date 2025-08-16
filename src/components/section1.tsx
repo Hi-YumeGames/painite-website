@@ -36,7 +36,7 @@ const Section1 = () => {
       {
         id: 1,
         name: 'adaptive planner',
-        url: '/images/logo.png',
+        url: '/images/adaptive.jpeg',
         github: 'https://github.com/Painite69/adaptive-public',
         status: 'in-progress', // 'live' or 'in-progress'
         isImage: true,
@@ -140,7 +140,7 @@ const Section1 = () => {
       {
         id: 1,
         name: 'adaptive planner',
-        url: '/images/logo.png',
+        url: '/images/adaptive.jpeg',
         github: 'https://github.com/Painite69/adaptive-public',
         status: 'in-progress', // 'live' or 'in-progress'
         isImage: true,
@@ -221,7 +221,7 @@ const Section1 = () => {
             alt={`Preview of ${project.name}`}
             width={400}
             height={300}
-            className="w-full h-full object-cover"
+            className="w-full h-fit object-cover flex justify-center items-start"
           />
         ) : (
           <>

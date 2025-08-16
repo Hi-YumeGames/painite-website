@@ -25,6 +25,9 @@ interface Project {
   status: 'live' | 'in-progress';
   isImage: boolean;
   stack: StackItem[];
+  stackText: React.ReactNode[];
+  features: React.ReactNode[];
+  technical: React.ReactNode[];
 }
 
 const Projects = () => {
@@ -32,13 +35,27 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [modalActiveTab, setModalActiveTab] = useState('stack');
 
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to restore scrolling when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProject]);
+
   // Sample project data - replace with your actual projects
   const projects: Record<string, Project[]> = {
     all: [
       {
         id: 1,
         name: 'adaptive planner',
-        url: '/images/logo.png',
+        url: '/images/adaptive.jpeg',
         github: 'https://github.com/Painite69/adaptive-public',
         status: 'in-progress', // 'live' or 'in-progress'
         isImage: true,
@@ -52,6 +69,45 @@ const Projects = () => {
           
           { name: 'Supabase', icon: '/stackIcons/supabase.svg' },
           { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I'm creating this app using Next.Js, React, Typescript and Turbopack for the front end.
+            </div>
+            <div className="flex items-center gap-2">
+              - For styling I'm using Tailwind CSS, Shadcn UI, Lucide React and some custom css modules.
+            </div>
+            <div className="flex items-center gap-2">
+              - I'm also using node.js for backend and supabase for authintication, storage and server-side rendering.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - It has a linked system of tasks, events and goals making productivity attainable.
+            </div>
+            <div className="flex items-center gap-2">
+              - There are Bucket List for future goals and dreams, notes to keep everything .
+            </div>
+            <div className="flex items-center gap-2">
+              - Various themes with the ability to make your own custom theme.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Adaptive scheduling to keep productivity high and achieve more.
+            </div>
+            <div className="flex items-center gap-2">
+              - Connection between goals, tasks and events to keep you on track.
+            </div>
+            <div className="flex items-center gap-2">
+              - Connecting to your google calendar to get your events.
+            </div>
+          </div>
         ]
       },
       {
@@ -66,6 +122,42 @@ const Projects = () => {
           { name: 'Vite', icon: '/stackIcons/vite.svg' },
           { name: 'CSS', icon: '/stackIcons/css.svg' },
           { name: 'Firebase', icon: '/stackIcons/firebase.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I used React Native and Vite for the front end with custom css for styling.
+            </div>
+            <div className="flex items-center gap-2">
+              - Firebase for functions and realtime database.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - A loldle like game where you have to guess todays answers with given info.
+            </div>
+            <div className="flex items-center gap-2">
+              - 4 games to play, guess warframe, quote, ability and icon.
+            </div>
+            <div className="flex items-center gap-2">
+              - KIM system themed to match the 1999 update.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Daily resets without repetitions to keep the game fresh.
+            </div>
+            <div className="flex items-center gap-2">
+              - Stats and streak to keep you motivated. 
+            </div>
+            <div className="flex items-center gap-2">
+              - Two view modes, fullscreen and windowed to fit most screens and a colorblind mode.
+            </div>
+          </div>
         ]
       },
       {
@@ -82,6 +174,45 @@ const Projects = () => {
 
           { name: 'iOS', icon: '/stackIcons/ios.svg' },
           { name: 'Android', icon: '/stackIcons/android.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I used Godot 4.3 and GDScript for the game development.
+            </div>
+            <div className="flex items-center gap-2">
+              - JSON for the game data.
+            </div>
+            <div className="flex items-center gap-2">
+              - Godot scene system for the game.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Tile based movement in an endless run with many obstacles to avoid.
+            </div>
+            <div className="flex items-center gap-2">
+              - Coins and material to help you grow and help your peers.
+            </div>
+            <div className="flex items-center gap-2">
+              - Multiple connected characters and more to come from other countries.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Endless runner with a unique generation for each run and tileset.
+            </div>
+            <div className="flex items-center gap-2">
+              - Powerups to help you gather more material and navigate through the terrain.
+            </div>
+            <div className="flex items-center gap-2">
+              - Morning, afternoon, evening and night cycles to keep the game interesting.
+            </div>
+          </div>
         ]
       },
       {
@@ -97,6 +228,42 @@ const Projects = () => {
           { name: 'TypeScript', icon: '/stackIcons/typescript.svg' },
           { name: 'Tailwind CSS', icon: '/stackIcons/tailwind.svg' },
           { name: 'CSS', icon: '/stackIcons/css.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I used React, Next.js and TypeScript for the front end.
+            </div>
+            <div className="flex items-center gap-2">
+              - Tailwind CSS for styling and custom CSS modules.
+            </div>
+            <div className="flex items-center gap-2">
+              - Node.js for the backend and Vercel for hosting and deployment.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - A game studio website featuring my published game.
+            </div>
+            <div className="flex items-center gap-2">
+              - Showcase of our team, roles and our cause.
+            </div>
+            <div className="flex items-center gap-2">
+              - Newsletter section to stay updated with our latest news and updates.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Custom made carousel for phone view.
+            </div>
+            <div className="flex items-center gap-2">
+              - Custom made form connected to google forms.
+            </div>
+          </div>
         ]
       },
       {
@@ -115,6 +282,42 @@ const Projects = () => {
           { name: 'Supabase', icon: '/stackIcons/supabase.svg' },
           { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' },
           { name: 'Resend', icon: '/stackIcons/resend.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I used React, Next.js, TypeScript and Tailwind CSS for the front end.
+            </div>
+            <div className="flex items-center gap-2">
+              - Node.js for the backend and supabase for database and admin authintication.
+            </div>
+            <div className="flex items-center gap-2">
+              - Resend for the contact form.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Showcasing the work of EnoB ART with a full gallery.
+            </div>
+            <div className="flex items-center gap-2">
+              - A list of the services provided and the methods used to create the art.
+            </div>
+            <div className="flex items-center gap-2">
+              - Admin page to allow the owner full control and customization of the website.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Responsive layout with carousel for phone view.
+            </div>
+            <div className="flex items-center gap-2">
+              - A contact form connected to the owners email.
+            </div>
+          </div>
         ]
       },
       {
@@ -133,6 +336,42 @@ const Projects = () => {
           { name: 'Supabase', icon: '/stackIcons/supabase.svg' },
           { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' },
           { name: 'Resend', icon: '/stackIcons/resend.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I used React, Next.js, TypeScript and Tailwind CSS for the front end.
+            </div>
+            <div className="flex items-center gap-2">
+              - Node.js for the backend and supabase for database and admin authintication.
+            </div>
+            <div className="flex items-center gap-2">
+              - Resend for the contact form.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Showcasing the personal and professional life of Haya.
+            </div>
+            <div className="flex items-center gap-2">
+              - Lists of projects, designs and art. 
+            </div>
+            <div className="flex items-center gap-2">
+              - Admin page to allow the owner full control and customization of the website.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Single page portfolio website.
+            </div>
+            <div className="flex items-center gap-2">
+              - A contact form connected to the owners email.
+            </div>
+          </div>
         ]
       },
       {
@@ -144,12 +383,49 @@ const Projects = () => {
         isImage: false,
         stack: [
           { name: 'React', icon: '/stackIcons/react.svg' },
+          { name: 'Next.js', icon: '/stackIcons/nextjs.svg' },
           { name: 'TypeScript', icon: '/stackIcons/typescript.svg' },
           { name: 'Tailwind CSS', icon: '/stackIcons/tailwind.svg' },
           { name: 'Shadcn', icon: '/stackIcons/shadcn.svg' },
           { name: 'Supabase', icon: '/stackIcons/supabase.svg' },
           { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' },
           { name: 'Resend', icon: '/stackIcons/resend.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I used React, Next.js, TypeScript and Tailwind CSS for the front end.
+            </div>
+            <div className="flex items-center gap-2">
+              - Node.js for the backend and supabase for database and admin authintication.
+            </div>
+            <div className="flex items-center gap-2">
+              - Resend for the contact form.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Showcasing the gamer and professional sides of Moh.
+            </div>
+            <div className="flex items-center gap-2">
+              - Lists of projects, work and clips. 
+            </div>
+            <div className="flex items-center gap-2">
+              - Admin page to allow the owner full control and customization of the website.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Homepage and a game page to showcase the work of moh.
+            </div>
+            <div className="flex items-center gap-2">
+              - A contact form connected to the owners email.
+            </div>
+          </div>
         ]
       }
     ],
@@ -167,6 +443,42 @@ const Projects = () => {
           { name: 'TypeScript', icon: '/stackIcons/typescript.svg' },
           { name: 'Tailwind CSS', icon: '/stackIcons/tailwind.svg' },
           { name: 'CSS', icon: '/stackIcons/css.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I used React, Next.js and TypeScript for the front end.
+            </div>
+            <div className="flex items-center gap-2">
+              - Tailwind CSS for styling and custom CSS modules.
+            </div>
+            <div className="flex items-center gap-2">
+              - Node.js for the backend and Vercel for hosting and deployment.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - A game studio website featuring my published game.
+            </div>
+            <div className="flex items-center gap-2">
+              - Showcase of our team, roles and our cause.
+            </div>
+            <div className="flex items-center gap-2">
+              - Newsletter section to stay updated with our latest news and updates.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Custom made carousel for phone view.
+            </div>
+            <div className="flex items-center gap-2">
+              - Custom made form connected to google forms.
+            </div>
+          </div>
         ]
       },
       {
@@ -185,6 +497,42 @@ const Projects = () => {
           { name: 'Supabase', icon: '/stackIcons/supabase.svg' },
           { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' },
           { name: 'Resend', icon: '/stackIcons/resend.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I used React, Next.js, TypeScript and Tailwind CSS for the front end.
+            </div>
+            <div className="flex items-center gap-2">
+              - Node.js for the backend and supabase for database and admin authintication.
+            </div>
+            <div className="flex items-center gap-2">
+              - Resend for the contact form.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Showcasing the work of EnoB ART with a full gallery.
+            </div>
+            <div className="flex items-center gap-2">
+              - A list of the services provided and the methods used to create the art.
+            </div>
+            <div className="flex items-center gap-2">
+              - Admin page to allow the owner full control and customization of the website.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Responsive layout with carousel for phone view.
+            </div>
+            <div className="flex items-center gap-2">
+              - A contact form connected to the owners email.
+            </div>
+          </div>
         ]
       },
       {
@@ -203,6 +551,42 @@ const Projects = () => {
           { name: 'Supabase', icon: '/stackIcons/supabase.svg' },
           { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' },
           { name: 'Resend', icon: '/stackIcons/resend.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I used React, Next.js, TypeScript and Tailwind CSS for the front end.
+            </div>
+            <div className="flex items-center gap-2">
+              - Node.js for the backend and supabase for database and admin authintication.
+            </div>
+            <div className="flex items-center gap-2">
+              - Resend for the contact form.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Showcasing the personal and professional life of Haya.
+            </div>
+            <div className="flex items-center gap-2">
+              - Lists of projects, designs and art. 
+            </div>
+            <div className="flex items-center gap-2">
+              - Admin page to allow the owner full control and customization of the website.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Single page portfolio website.
+            </div>
+            <div className="flex items-center gap-2">
+              - A contact form connected to the owners email.
+            </div>
+          </div>
         ]
       },
       {
@@ -221,6 +605,42 @@ const Projects = () => {
           { name: 'Supabase', icon: '/stackIcons/supabase.svg' },
           { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' },
           { name: 'Resend', icon: '/stackIcons/resend.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I used React, Next.js, TypeScript and Tailwind CSS for the front end.
+            </div>
+            <div className="flex items-center gap-2">
+              - Node.js for the backend and supabase for database and admin authintication.
+            </div>
+            <div className="flex items-center gap-2">
+              - Resend for the contact form.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Showcasing the gamer and professional sides of Moh.
+            </div>
+            <div className="flex items-center gap-2">
+              - Lists of projects, work and clips. 
+            </div>
+            <div className="flex items-center gap-2">
+              - Admin page to allow the owner full control and customization of the website.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Homepage and a game page to showcase the work of moh.
+            </div>
+            <div className="flex items-center gap-2">
+              - A contact form connected to the owners email.
+            </div>
+          </div>
         ]
       }
     ],
@@ -228,7 +648,7 @@ const Projects = () => {
       {
         id: 1,
         name: 'adaptive planner',
-        url: '/images/logo.png',
+        url: '/images/adaptive.jpeg',
         github: 'https://github.com/Painite69/adaptive-public',
         status: 'in-progress', // 'live' or 'in-progress'
         isImage: true,
@@ -242,11 +662,50 @@ const Projects = () => {
           
           { name: 'Supabase', icon: '/stackIcons/supabase.svg' },
           { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I'm creating this app using Next.Js, React, Typescript and Turbopack for the front end.
+            </div>
+            <div className="flex items-center gap-2">
+              - For styling I'm using Tailwind CSS, Shadcn UI, Lucide React and some custom css modules.
+            </div>
+            <div className="flex items-center gap-2">
+              - I'm also using node.js for backend and supabase for authintication, storage and server-side rendering.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - It has a linked system of tasks, events and goals making productivity attainable.
+            </div>
+            <div className="flex items-center gap-2">
+              - There are Bucket List for future goals and dreams, notes to keep everything .
+            </div>
+            <div className="flex items-center gap-2">
+              - Various themes with the ability to make your own custom theme.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Adaptive scheduling to keep productivity high and achieve more.
+            </div>
+            <div className="flex items-center gap-2">
+              - Connection between goals, tasks and events to keep you on track.
+            </div>
+            <div className="flex items-center gap-2">
+              - Connecting to your google calendar to get your events.
+            </div>
+          </div>
         ]
       },
       {
         id: 2,
-        name: 'warframedle.com',
+        name: 'warframedle',
         url: 'https://warframedle.com',
         github: 'https://github.com/Painite69/warframedle-public',
         status: 'live',
@@ -256,24 +715,99 @@ const Projects = () => {
           { name: 'Vite', icon: '/stackIcons/vite.svg' },
           { name: 'CSS', icon: '/stackIcons/css.svg' },
           { name: 'Firebase', icon: '/stackIcons/firebase.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I used React Native and Vite for the front end with custom css for styling.
+            </div>
+            <div className="flex items-center gap-2">
+              - Firebase for functions and realtime database.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - A loldle like game where you have to guess todays answers with given info.
+            </div>
+            <div className="flex items-center gap-2">
+              - 4 games to play, guess warframe, quote, ability and icon.
+            </div>
+            <div className="flex items-center gap-2">
+              - KIM system themed to match the 1999 update.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Daily resets without repetitions to keep the game fresh.
+            </div>
+            <div className="flex items-center gap-2">
+              - Stats and streak to keep you motivated. 
+            </div>
+            <div className="flex items-center gap-2">
+              - Two view modes, fullscreen and windowed to fit most screens and a colorblind mode.
+            </div>
+          </div>
         ]
       }
     ],
     games: [
       {
-        id: 1,
-        name: 'victors game 4.3',
+        id: 3,
+        name: 'victors game',
         url: 'https://www.hiyume.games/VictorsGame',
         github: 'https://github.com/Painite69/victors-game-public',
         status: 'live',
         isImage: false,
         stack: [
-          { name: 'Godot', icon: '/stackIcons/godot.svg' },
+          { name: 'Godot 4.3', icon: '/stackIcons/godot.svg' },
           { name: 'GDScript', icon: '/stackIcons/gdscript.png' },
           { name: 'JSON', icon: '/stackIcons/json.svg' },
 
           { name: 'iOS', icon: '/stackIcons/ios.svg' },
           { name: 'Android', icon: '/stackIcons/android.svg' }
+        ],
+        stackText: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - I used Godot 4.3 and GDScript for the game development.
+            </div>
+            <div className="flex items-center gap-2">
+              - JSON for the game data.
+            </div>
+            <div className="flex items-center gap-2">
+              - Godot scene system for the game.
+            </div>
+          </div>
+        ],
+        features: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Tile based movement in an endless run with many obstacles to avoid.
+            </div>
+            <div className="flex items-center gap-2">
+              - Coins and material to help you grow and help your peers.
+            </div>
+            <div className="flex items-center gap-2">
+              - Multiple connected characters and more to come from other countries.
+            </div>
+          </div>
+        ],
+        technical: [
+          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Endless runner with a unique generation for each run and tileset.
+            </div>
+            <div className="flex items-center gap-2">
+              - Powerups to help you gather more material and navigate through the terrain.
+            </div>
+            <div className="flex items-center gap-2">
+              - Morning, afternoon, evening and night cycles to keep the game interesting.
+            </div>
+          </div>
         ]
       }
     ]
@@ -282,7 +816,10 @@ const Projects = () => {
   const ProjectCard = ({ project }: { project: Project }) => (
     <div 
       className="select-none bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700 hover:border-zinc-600 transition-all duration-300 group cursor-pointer"
-      onClick={() => setSelectedProject(project)}
+      onClick={() => {
+        setSelectedProject(project);
+        setModalActiveTab('stack');
+      }}
     >
       {/* Live Preview */}
       <div className="relative h-48 bg-zinc-900 overflow-hidden">
@@ -312,7 +849,7 @@ const Projects = () => {
             alt={`Preview of ${project.name}`}
             width={400}
             height={300}
-            className="w-full h-full object-cover"
+            className="w-full h-fit object-cover flex justify-center items-start"
           />
         ) : (
           <>
@@ -431,7 +968,7 @@ const Projects = () => {
                   alt={`Preview of ${project.name}`}
                   width={400}
                   height={300}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover flex justify-center items-center"
                 />
               ) : (
                 <>
@@ -554,21 +1091,31 @@ const Projects = () => {
                       </div>
                     ))}
                   </div>
-                  <p className="text-muted-foreground mt-4 text-sm">
-                    a more in depth stack dive
-                  </p>
+                  {project.stackText.map((item, index) => (
+                    <div key={`stack-${index}`}>
+                      {item}
+                    </div>
+                  ))}
                 </div>
               )}
 
               {modalActiveTab === 'features' && (
                 <div>
-                  <p className="text-muted-foreground text-sm sm:text-base">Custom features content will be added here for each project.</p>
+                  {project.features.map((item, index) => (
+                    <div key={`features-${index}`}>
+                      {item}
+                    </div>
+                  ))}
                 </div>
               )}
 
               {modalActiveTab === 'technical' && (
                 <div>
-                  <p className="text-muted-foreground text-sm sm:text-base">Technical implementation details will be added here for each project.</p>
+                  {project.technical.map((item, index) => (
+                    <div key={`technical-${index}`}>
+                      {item}
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
