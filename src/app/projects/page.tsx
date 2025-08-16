@@ -18,7 +18,6 @@ interface StackItem {
 }
 
 interface Project {
-  key: number;
   id: number;
   name: string;
   url: string;
@@ -54,7 +53,6 @@ const Projects = () => {
   const projects: Record<string, Project[]> = {
     all: [
       {
-        key: 1,
         id: 1,
         name: 'adaptive planner',
         url: '/images/adaptive.jpeg',
@@ -73,7 +71,7 @@ const Projects = () => {
           { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="adaptive-stack-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I'm creating this app using Next.Js, React, Typescript and Turbopack for the front end.
             </div>
@@ -86,7 +84,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="adaptive-features-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - It has a linked system of tasks, events and goals making productivity attainable.
             </div>
@@ -99,7 +97,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="adaptive-technical-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Adaptive scheduling to keep productivity high and achieve more.
             </div>
@@ -113,7 +111,6 @@ const Projects = () => {
         ]
       },
       {
-        key: 2,
         id: 2,
         name: 'warframedle',
         url: 'https://warframedle.com',
@@ -127,7 +124,7 @@ const Projects = () => {
           { name: 'Firebase', icon: '/stackIcons/firebase.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="warframedle-stack-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I used React Native and Vite for the front end with custom css for styling.
             </div>
@@ -137,7 +134,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="warframedle-features-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - A loldle like game where you have to guess todays answers with given info.
             </div>
@@ -150,7 +147,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="victors-game-technical-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Daily resets without repetitions to keep the game fresh.
             </div>
@@ -164,7 +161,6 @@ const Projects = () => {
         ]
       },
       {
-        key: 3,
         id: 3,
         name: 'victors game',
         url: 'https://www.hiyume.games/VictorsGame',
@@ -180,7 +176,7 @@ const Projects = () => {
           { name: 'Android', icon: '/stackIcons/android.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="victors-game-stack-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I used Godot 4.3 and GDScript for the game development.
             </div>
@@ -193,7 +189,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="victors-game-features-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Tile based movement in an endless run with many obstacles to avoid.
             </div>
@@ -206,7 +202,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="victors-game-technical-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Endless runner with a unique generation for each run and tileset.
             </div>
@@ -220,7 +216,6 @@ const Projects = () => {
         ]
       },
       {
-        key: 4,
         id: 4,
         name: 'hiyume.games',
         url: 'https://hiyume.games',
@@ -235,7 +230,7 @@ const Projects = () => {
           { name: 'CSS', icon: '/stackIcons/css.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="hiyume-games-stack-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I used React, Next.js and TypeScript for the front end.
             </div>
@@ -248,7 +243,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="hiyume-games-features-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - A game studio website featuring my published game.
             </div>
@@ -261,7 +256,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="hiyume-games-technical-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Custom made carousel for phone view.
             </div>
@@ -272,7 +267,6 @@ const Projects = () => {
         ]
       },
       {
-        key: 5,
         id: 5,
         name: 'enobart.hiyume.games',
         url: 'https://enobart.hiyume.games',
@@ -290,7 +284,7 @@ const Projects = () => {
           { name: 'Resend', icon: '/stackIcons/resend.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="enobart-portfolio-stack-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I used React, Next.js, TypeScript and Tailwind CSS for the front end.
             </div>
@@ -303,7 +297,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="enobart-portfolio-features-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Showcasing the work of EnoB ART with a full gallery.
             </div>
@@ -316,7 +310,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="enobart-portfolio-technical-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Responsive layout with carousel for phone view.
             </div>
@@ -327,7 +321,6 @@ const Projects = () => {
         ]
       },
       {
-        key: 6,
         id: 6,
         name: 'haya.hiyume.games',
         url: 'https://haya.hiyume.games',
@@ -345,7 +338,7 @@ const Projects = () => {
           { name: 'Resend', icon: '/stackIcons/resend.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="haya-portfolio-stack-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I used React, Next.js, TypeScript and Tailwind CSS for the front end.
             </div>
@@ -358,7 +351,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="haya-portfolio-features-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Showcasing the personal and professional life of Haya.
             </div>
@@ -371,7 +364,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="haya-portfolio-technical-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Single page portfolio website.
             </div>
@@ -382,7 +375,6 @@ const Projects = () => {
         ]
       },
       {
-        key: 7,
         id: 7,
         name: 'mohammed.hiyume.games',
         url: 'https://mohammed.hiyume.games',
@@ -400,7 +392,7 @@ const Projects = () => {
           { name: 'Resend', icon: '/stackIcons/resend.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="mohammed-website-stack-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I used React, Next.js, TypeScript and Tailwind CSS for the front end.
             </div>
@@ -413,7 +405,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="mohammed-website-features-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Showcasing the gamer and professional sides of Moh.
             </div>
@@ -426,7 +418,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="mohammed-website-technical-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Homepage and a game page to showcase the work of moh.
             </div>
@@ -439,7 +431,6 @@ const Projects = () => {
     ],
     sites: [
       {
-        key: 1,
         id: 1,
         name: 'hiyume.games',
         url: 'https://hiyume.games',
@@ -454,7 +445,7 @@ const Projects = () => {
           { name: 'CSS', icon: '/stackIcons/css.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="hiyume-games-stack-sites" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I used React, Next.js and TypeScript for the front end.
             </div>
@@ -467,7 +458,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="hiyume-games-features-sites" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - A game studio website featuring my published game.
             </div>
@@ -480,7 +471,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="hiyume-games-technical-sites" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Custom made carousel for phone view.
             </div>
@@ -491,7 +482,6 @@ const Projects = () => {
         ]
       },
       {
-        key: 2,
         id: 2,
         name: 'enobart.hiyume.games',
         url: 'https://enobart.hiyume.games',
@@ -509,7 +499,7 @@ const Projects = () => {
           { name: 'Resend', icon: '/stackIcons/resend.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="enobart-portfolio-stack-sites" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I used React, Next.js, TypeScript and Tailwind CSS for the front end.
             </div>
@@ -522,7 +512,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="enobart-portfolio-features-sites" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Showcasing the work of EnoB ART with a full gallery.
             </div>
@@ -535,7 +525,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="enobart-portfolio-technical-sites" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Responsive layout with carousel for phone view.
             </div>
@@ -546,7 +536,6 @@ const Projects = () => {
         ]
       },
       {
-        key: 3,
         id: 3,
         name: 'haya.hiyume.games',
         url: 'https://haya.hiyume.games',
@@ -564,7 +553,7 @@ const Projects = () => {
           { name: 'Resend', icon: '/stackIcons/resend.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="haya-portfolio-stack-sites" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I used React, Next.js, TypeScript and Tailwind CSS for the front end.
             </div>
@@ -577,7 +566,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="haya-portfolio-features-sites" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Showcasing the personal and professional life of Haya.
             </div>
@@ -590,7 +579,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="haya-portfolio-technical-sites" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Single page portfolio website.
             </div>
@@ -601,7 +590,6 @@ const Projects = () => {
         ]
       },
       {
-        key: 4,
         id: 4,
         name: 'mohammed.hiyume.games',
         url: 'https://mohammed.hiyume.games',
@@ -619,7 +607,7 @@ const Projects = () => {
           { name: 'Resend', icon: '/stackIcons/resend.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="mohammed-website-stack-sites" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I used React, Next.js, TypeScript and Tailwind CSS for the front end.
             </div>
@@ -632,7 +620,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="mohammed-website-features-sites" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Showcasing the gamer and professional sides of Moh.
             </div>
@@ -645,7 +633,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="mohammed-website-technical-sites" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Homepage and a game page to showcase the work of moh.
             </div>
@@ -658,7 +646,6 @@ const Projects = () => {
     ],
     apps: [
       {
-        key: 1,
         id: 1,
         name: 'adaptive planner',
         url: '/images/adaptive.jpeg',
@@ -677,7 +664,7 @@ const Projects = () => {
           { name: 'PostgreSQL', icon: '/stackIcons/postgresql.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="adaptive-stack-apps" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I'm creating this app using Next.Js, React, Typescript and Turbopack for the front end.
             </div>
@@ -690,7 +677,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="adaptive-features-apps" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - It has a linked system of tasks, events and goals making productivity attainable.
             </div>
@@ -703,7 +690,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="adaptive-technical-apps" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Adaptive scheduling to keep productivity high and achieve more.
             </div>
@@ -717,7 +704,6 @@ const Projects = () => {
         ]
       },
       {
-        key: 2,
         id: 2,
         name: 'warframedle',
         url: 'https://warframedle.com',
@@ -731,7 +717,7 @@ const Projects = () => {
           { name: 'Firebase', icon: '/stackIcons/firebase.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="warframedle-stack-apps" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I used React Native and Vite for the front end with custom css for styling.
             </div>
@@ -741,7 +727,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="warframedle-features-apps" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - A loldle like game where you have to guess todays answers with given info.
             </div>
@@ -754,7 +740,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="warframedle-technical-apps" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Daily resets without repetitions to keep the game fresh.
             </div>
@@ -770,7 +756,6 @@ const Projects = () => {
     ],
     games: [
       {
-        key: 1,
         id: 1,
         name: 'victors game',
         url: 'https://www.hiyume.games/VictorsGame',
@@ -786,7 +771,7 @@ const Projects = () => {
           { name: 'Android', icon: '/stackIcons/android.svg' }
         ],
         stackText: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="victors-game-stack-games" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - I used Godot 4.3 and GDScript for the game development.
             </div>
@@ -799,7 +784,7 @@ const Projects = () => {
           </div>
         ],
         features: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="victors-game-features-games" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Tile based movement in an endless run with many obstacles to avoid.
             </div>
@@ -812,7 +797,7 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="victors-game-technical-games" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
               - Endless runner with a unique generation for each run and tileset.
             </div>
