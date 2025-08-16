@@ -18,6 +18,7 @@ interface StackItem {
 }
 
 interface Project {
+  key: number;
   id: number;
   name: string;
   url: string;
@@ -53,6 +54,7 @@ const Projects = () => {
   const projects: Record<string, Project[]> = {
     all: [
       {
+        key: 1,
         id: 1,
         name: 'adaptive planner',
         url: '/images/adaptive.jpeg',
@@ -111,6 +113,7 @@ const Projects = () => {
         ]
       },
       {
+        key: 2,
         id: 2,
         name: 'warframedle',
         url: 'https://warframedle.com',
@@ -161,6 +164,7 @@ const Projects = () => {
         ]
       },
       {
+        key: 3,
         id: 3,
         name: 'victors game',
         url: 'https://www.hiyume.games/VictorsGame',
@@ -216,6 +220,7 @@ const Projects = () => {
         ]
       },
       {
+        key: 4,
         id: 4,
         name: 'hiyume.games',
         url: 'https://hiyume.games',
@@ -267,6 +272,7 @@ const Projects = () => {
         ]
       },
       {
+        key: 5,
         id: 5,
         name: 'enobart.hiyume.games',
         url: 'https://enobart.hiyume.games',
@@ -321,6 +327,7 @@ const Projects = () => {
         ]
       },
       {
+        key: 6,
         id: 6,
         name: 'haya.hiyume.games',
         url: 'https://haya.hiyume.games',
@@ -375,6 +382,7 @@ const Projects = () => {
         ]
       },
       {
+        key: 7,
         id: 7,
         name: 'mohammed.hiyume.games',
         url: 'https://mohammed.hiyume.games',
@@ -431,6 +439,7 @@ const Projects = () => {
     ],
     sites: [
       {
+        key: 1,
         id: 1,
         name: 'hiyume.games',
         url: 'https://hiyume.games',
@@ -482,6 +491,7 @@ const Projects = () => {
         ]
       },
       {
+        key: 2,
         id: 2,
         name: 'enobart.hiyume.games',
         url: 'https://enobart.hiyume.games',
@@ -536,6 +546,7 @@ const Projects = () => {
         ]
       },
       {
+        key: 3,
         id: 3,
         name: 'haya.hiyume.games',
         url: 'https://haya.hiyume.games',
@@ -590,6 +601,7 @@ const Projects = () => {
         ]
       },
       {
+        key: 4,
         id: 4,
         name: 'mohammed.hiyume.games',
         url: 'https://mohammed.hiyume.games',
@@ -646,6 +658,7 @@ const Projects = () => {
     ],
     apps: [
       {
+        key: 1,
         id: 1,
         name: 'adaptive planner',
         url: '/images/adaptive.jpeg',
@@ -704,6 +717,7 @@ const Projects = () => {
         ]
       },
       {
+        key: 2,
         id: 2,
         name: 'warframedle',
         url: 'https://warframedle.com',
@@ -756,7 +770,8 @@ const Projects = () => {
     ],
     games: [
       {
-        id: 3,
+        key: 1,
+        id: 1,
         name: 'victors game',
         url: 'https://www.hiyume.games/VictorsGame',
         github: 'https://github.com/Painite69/victors-game-public',
