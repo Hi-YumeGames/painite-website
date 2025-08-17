@@ -961,7 +961,7 @@ const Projects = () => {
               </div>
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-zinc-800 rounded-lg transition-colors"
+                className="cursor-pointer p-2 hover:bg-zinc-800 rounded-lg transition-colors"
               >
                 <X size={18} className="text-foreground sm:w-5 sm:h-5" />
               </button>
