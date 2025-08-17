@@ -305,12 +305,15 @@ const Projects = () => {
               - A list of the services provided and the methods used to create the art.
             </div>
             <div className="flex items-center gap-2">
-              - Admin page to allow the owner full control and customization of the website.
+              - 3 themes to choose from, light, dark and colorful.
             </div>
           </div>
         ],
         technical: [
           <div key="enobart-portfolio-technical-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Admin page to allow the owner full control and customization of the website.
+            </div>
             <div className="flex items-center gap-2">
               - Responsive layout with carousel for phone view.
             </div>
@@ -366,6 +369,9 @@ const Projects = () => {
         technical: [
           <div key="haya-portfolio-technical-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
             <div className="flex items-center gap-2">
+              - Connected admin page, homepage and database for unified edits.
+            </div>
+            <div className="flex items-center gap-2">
               - Single page portfolio website.
             </div>
             <div className="flex items-center gap-2">
@@ -418,7 +424,10 @@ const Projects = () => {
           </div>
         ],
         technical: [
-          <div key="mohammed-website-technical-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+          <div key="haya-portfolio-technical-all" className="flex flex-col gap-2 text-sm mt-4 p-4 bg-zinc-700/80 rounded-lg">
+            <div className="flex items-center gap-2">
+              - Connected admin page, homepage and database for unified edits.
+            </div>
             <div className="flex items-center gap-2">
               - Homepage and a game page to showcase the work of moh.
             </div>
