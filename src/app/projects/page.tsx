@@ -89,7 +89,7 @@ const Projects = () => {
               - It has a linked system of tasks, events and goals making productivity attainable.
             </div>
             <div className="flex items-center gap-2">
-              - There are Bucket List for future goals and dreams, notes to keep everything .
+              - There are Bucket List for future goals and dreams, notes to keep track of everything.
             </div>
             <div className="flex items-center gap-2">
               - Various themes with the ability to make your own custom theme.
