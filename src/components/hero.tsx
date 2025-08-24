@@ -329,14 +329,14 @@ function Hero() {
     "مرحبا بالعالم، أنا باينيت",
     "안녕하세요 세계, 저는 페이나이트입니다",
     "こんにちは世界、私はペイナイトです"
-  ], 50, 50, 1000)
+  ], 50, 50, 2000)
 
   const typingTextSmall = useTypingEffect([
     "Hello world,\nI'm Painite",
     "مرحبا بالعالم\nأنا باينيت",
     "안녕하세요 세계,\n저는 페이나이트입니다",
     "こんにちは世界、\n私はペイナイトです"
-  ], 50, 50, 1000)
+  ], 50, 50, 2000)
 
   const isArabic = /[\u0600-\u06FF]/.test(typingText)
   const isArabicSmall = /[\u0600-\u06FF]/.test(typingTextSmall)
