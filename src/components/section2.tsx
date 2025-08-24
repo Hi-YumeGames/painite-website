@@ -30,8 +30,7 @@ const Section2 = () => {
         { name: 'GitHub', url: 'https://github.com/Painite69', icon: Github },
         { name: 'Upwork', url: 'https://upwork.com/freelancers/~016b673a89188b9871', icon: '/images/upwork.svg', isCustomIcon: true },
         { name: 'Freelancer', url: 'https://www.freelancer.com/u/PainiteCoding?sb=t', icon: '/images/freelancer.svg', isCustomIcon: true },
-        { name: 'Behance', url: 'https://www.behance.net/yazanbarakat3', icon: '/images/behance.svg', isCustomIcon: true },
-        { name: 'Dribbble', url: 'https://dribbble.com/painitecode', icon: '/images/dribbble.svg', isCustomIcon: true }
+        { name: 'Behance', url: 'https://www.behance.net/yazanbarakat3', icon: '/images/behance.svg', isCustomIcon: true }
       ]
     },
     personal: {

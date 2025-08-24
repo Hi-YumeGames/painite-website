@@ -331,7 +331,15 @@ function Hero() {
     "こんにちは世界、私はペイナイトです"
   ], 50, 50, 1000)
 
+  const typingTextSmall = useTypingEffect([
+    "Hello world,\nI'm Painite",
+    "مرحبا بالعالم\nأنا باينيت",
+    "안녕하세요 세계,\n저는 페이나이트입니다",
+    "こんにちは世界、\n私はペイナイトです"
+  ], 50, 50, 1000)
+
   const isArabic = /[\u0600-\u06FF]/.test(typingText)
+  const isArabicSmall = /[\u0600-\u06FF]/.test(typingTextSmall)
 
   return (
     <div className="bg-[#212121] relative overflow-hidden">
@@ -342,14 +350,28 @@ function Hero() {
         <div className="mx-auto py-8 sm:py-16">
           <div className="text-center relative h-full flex flex-col items-center justify-center">
             <h1
-              className="flex  pb-4 bg-gradient-to-r from-[#CAE6A2] to-[#FFFDCF] bg-clip-text text-transparent xm:text-lg sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl "
+              className="pb-4 bg-gradient-to-r from-[#CAE6A2] to-[#FFFDCF] bg-clip-text text-transparent text-2xl xm:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
               style={{
                 fontFamily: 'IBMLight, IBMLightAR, IBMLightKR, IBMLightJP',
-                whiteSpace: 'nowrap'
+                whiteSpace: 'pre-line'
               }}
             >
-              <span className={`animate-blink ${isArabic ? 'order-1' : 'order-2'}`}>|</span>
-              <span className={`${isArabic ? 'order-2' : 'order-1'}`}>{typingText}</span>
+              <span className="hidden sm:block">
+                {isArabic ? (
+                  <>
+                    <span className="animate-blink">|</span>
+                    {typingText}
+                  </>
+                ) : (
+                  <>
+                    {typingText}
+                    <span className="animate-blink">|</span>
+                  </>
+                )}
+              </span>
+              <span className="sm:hidden">
+                {typingTextSmall}
+              </span>
             </h1>
             <p 
               className="mt-2 text-sm font-medium text-pretty text-[#F9F9F9] sm:text-4xl sm:mt-8"
